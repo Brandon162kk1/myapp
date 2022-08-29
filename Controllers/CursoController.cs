@@ -38,18 +38,10 @@ namespace myapp.Controllers
             monto=cred*preCred*3;
             igv=0.18*monto;
             mt=monto+igv; 
-        }else if(v1==1 && v2==1){
+        }else if((v1==1 && v2==1)||(v1==1 && v3==1)||(v2==1 && v3==1)){
             monto=cred*preCred*2;
             igv=0.18*monto;
             mt=monto+igv;  
-        }else if(v1==1 && v3==1){
-            monto=cred*preCred*2;
-            igv=0.18*monto;
-            mt=monto+igv;
-        }else if(v2==1 && v3==1){
-            monto=cred*preCred*2;
-            igv=0.18*monto;
-            mt=monto+igv;;  
         }else{
             monto=cred*preCred;
             igv=0.18*monto;
@@ -60,7 +52,7 @@ namespace myapp.Controllers
         ViewData["Message2"] ="IGV: " + igv;
         ViewData["Message3"] ="Total a Pagar: " + mt;
         return View("Index");
-        
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
